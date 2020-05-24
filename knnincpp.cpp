@@ -1,3 +1,5 @@
+/*IMPLEMENTING KNN ALGORITHM IN C++*/
+
 #include<iostream>
 #include<conio.h>
 #include<stdio.h>
@@ -10,7 +12,7 @@
 
 using namespace std;
 
-int k = 5;      //k number of nearest neighbours
+int k = 7;      //k number of nearest neighbours
 
 /*
 int cx[20] = {2, 4, 6, 1, 2, 3, 5, 6, 1, 4, 7, 5, 3, 4, 5, 3, 2, 3, 2, 4};      //x coordinates of the points
@@ -19,11 +21,13 @@ int clas[20] = {0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1};    
 */
 
 
-vector <int> cx, cy, clas;
+vector <int> cx, cy, clas;  //to store values from the file
 int value;
 
+//function to take input from the file
 int inputfromcsv()
 {
+    //input x values
     ifstream xin;
     xin.open("xval.csv");
     if(!xin.is_open()){
@@ -36,6 +40,7 @@ int inputfromcsv()
     }
     xin.close();
 
+    //input y values
     ifstream yin;
     yin.open("yval.csv");
     if(!yin.is_open()){
@@ -48,6 +53,7 @@ int inputfromcsv()
     }
     yin.close();
 
+    //input classification of the point
     ifstream clasin;
     clasin.open("clas.csv");
     if(!clasin.is_open()){
@@ -70,7 +76,7 @@ int count1 = 0;     //to count no of red color points near our point
 //int pointclas = 1;
 
 
- //function to implement knn algorithm
+//function to implement knn algorithm
 //void knn(int cx[20], int cy[20], int pointx, int pointy)
 void knn()     
 {
@@ -84,6 +90,7 @@ void knn()
 
     int n = cx.size();
 
+    //checking the vectors
     /*
     int a, b, c;
     a = n;
@@ -100,6 +107,7 @@ void knn()
         cout<<m<<" ";
     */
 
+    //calculating the distance b/w the points
     //map<int, int> distmap;
     for(int i = 0; i<n; i++){
         dist[i] = sqrt(pow((cx[i] - pointx), 2) + pow((cy[i] - pointy), 2));    //calculating the distance b/w the points
@@ -109,6 +117,7 @@ void knn()
 
     //n = 20/dist1[0];
     sort(dist1, dist1+n);      //sorting the array
+
     //classinfing the k nearest neighbours of the point
     cout<<"\nDISTANCE\tCOLOR";
     for(int i = 0; i<k; i++){
@@ -142,14 +151,15 @@ int main(int argc, char** argv)
 {
     int f;
     cout<<"\n\nKNN implementation in c++\n";
-    f = inputfromcsv();
+    f = inputfromcsv();     //input from file
     if(f != 0){
         cout<<"\nprogram ended due to an error\n";
         return 1;
     }
     cout<<"Enter the X and Y coordinates of the point to be clustered:\n";
     cin>>pointx>>pointy;
-    knn();
+    cout<<"\nvalue of 'K' is: "<<k;
+    knn();  
     getch();
     return 0;
 }
