@@ -34,11 +34,9 @@ _Actually, the point should be classified as **RED**._
 
 ## ALGORITHM:
 
-    1) Import the data in array. Two arrays to store X and Y values differently.
-In another array, store the corresponding class of the points. Here, 0 is for orange and 1 is for red.
+    1) Import the data in array. Two arrays to store X and Y values differently. In another array, store the corresponding class of the points. Here, 0 is for orange and 1 is for red.
     2) Initialise the value of K. I’m taking K as 5. Hence, we will consider 5 nearest neighbours.
-    3) Calculate the distance of each and every point from the blue point and store in an array.
-I’m using Euclidean distance for calculating the distance between the points.
+    3) Calculate the distance of each and every point from the blue point and store in an array. I’m using Euclidean distance for calculating the distance between the points.
     4) Now sort the array in ascending order and take first K number of points.
     5) Count the number of red and orange points in those K points.
     6) The point will belong to the category which appears more in those K points.
@@ -66,8 +64,8 @@ And yes, It predicted right again!
 
 ## CREATED BY:
 
-**ARCHIT GUPTA**
+ **ARCHIT GUPTA**
 
-E-Mail: architgpt2802@gmail.com
+ E-Mail: architgpt2802@gmail.com
 
-[_architgpt2802_](https://github.com/architgpt2802)
+ [_https://github.com/architgpt2802_](https://github.com/architgpt2802)
